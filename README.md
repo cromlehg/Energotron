@@ -51,7 +51,7 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 
 * _Extra tokens_               : 5% 
 * _Extra tokens lock period_   : 100 days after TGE
-* _Extra tokens wallet_        : 0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B
+* _Extra tokens wallet_        : 
 
 #### Links
 * _Token_ - 
@@ -59,24 +59,24 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 * _TGE_ - 
 
 #### Pre Token General Event
-* _Price_                      : 1 ETH = 1250 LCC
+* _Price_                      : 
 * _Minimal insvested limit_    : 0.1 ETH
-* _Softcap_                    : 7 142 857 LCC
-* _Hardcap_                    : 37 500 000 LCC
-* _Start_                      : Mon, 08 Jan 2018 13:00:00 GMT
+* _Softcap_                    : 
+* _Hardcap_                    :
+* _Start_                      : 
 * _Period_                     : 7 days
-* _Contract manager_           : 0xF51E0a3a17990D41C5f1Ff1d0D772b26E4D6B6d0
+* _Contract manager_           : 
 * _Direct mint agent_          : 
-* _ETH Wallet_                 : 0xDFDCAc0c9Eb45C63Bcff91220A48684882F1DAd0
+* _ETH Wallet_                 : 
 
 #### Token General Event
-* _Base price_                 : 1 ETH = 1000 LCC
+* _Base price_                 : 
 * _Minimal insvested limit_    : 0.1 ETH
-* _Hardcap_                    : 105 000 000 LCC
-* _Start_                      : Mon, 15 Jan 2018 14:00:00 GMT
-* _Contract manager_           : 0xF51E0a3a17990D41C5f1Ff1d0D772b26E4D6B6d0
+* _Hardcap_                    : 
+* _Start_                      : 
+* _Contract manager_           : 
 * _Direct mint agent_          :  
-* _ETH Wallet_                 : 0x3aC45b49A4D3CB35022fd8122Fd865cd1B47932f
+* _ETH Wallet_                 : 
 
 _Milestones_
 1. 10 days                     : discount 20%
