@@ -49,9 +49,10 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 
 ## Main network configuration
 
-* _Extra tokens_               : 5% 
-* _Extra tokens lock period_   : 100 days after TGE
-* _Extra tokens wallet_        : 
+* _Founders tokens_            : 7% 
+* _Founders tokens wallet_     : 
+* _Bounty tokens_              : 1% 
+* _Bounty tokens wallet_       : 
 
 #### Links
 * _Token_ - 
@@ -59,28 +60,28 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 * _TGE_ - 
 
 #### Pre Token General Event
-* _Price_                      : 
+* _Price_                      : 10000 ETN per 1 ETH
 * _Minimal insvested limit_    : 0.1 ETH
-* _Softcap_                    : 
-* _Hardcap_                    :
-* _Start_                      : 
-* _Period_                     : 7 days
+* _Hardcap_                    : 13400000 ETN
+* _Start_                      : Thu, 15 Feb 2018 13:00:00 GMT
+* _Period_                     : 30 days
 * _Contract manager_           : 
 * _Direct mint agent_          : 
 * _ETH Wallet_                 : 
 
 #### Token General Event
-* _Base price_                 : 
+* _Base price_                 : 8000 ETN per 1 ETH
 * _Minimal insvested limit_    : 0.1 ETH
-* _Hardcap_                    : 
-* _Start_                      : 
+* _Hardcap_                    : 603 000 000 ETN
+* _Start_                      : Fri, 20 Apr 2018 13:00:00 GMT
 * _Contract manager_           : 
 * _Direct mint agent_          :  
 * _ETH Wallet_                 : 
 
 _Milestones_
-1. 10 days                     : discount 20%
-2. 10 days                     : discount 10%
-3. 10 days                     : no discount
+1. 5 days                     : discount 15%
+2. 5 days                     : discount 10%
+3. 5 days                     : discount 5%
+4. 15 days                    : no discount
 
 
