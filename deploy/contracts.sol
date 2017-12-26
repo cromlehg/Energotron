@@ -235,17 +235,15 @@ contract StandardToken is ERC20, BasicToken {
 
 }
 
-// File: contracts/LightcashCryptoToken.sol
-
-contract LightcashCryptoToken is StandardToken, Ownable {
+contract EnergotronToken is StandardToken, Ownable {
 
   event Mint(address indexed to, uint256 amount);
 
   event MintFinished();
 
-  string public constant name = 'Lightcash crypto';
+  string public constant name = 'Energotron';
 
-  string public constant symbol = 'LCC';
+  string public constant symbol = 'ETN';
 
   uint32 public constant decimals = 18;
 
@@ -318,8 +316,6 @@ contract LightcashCryptoToken is StandardToken, Ownable {
 
 }
 
-// File: contracts/CommonTokenEvent.sol
-
 contract CommonTokenEvent is Ownable {
 
   using SafeMath for uint;
@@ -346,7 +342,7 @@ contract CommonTokenEvent is Ownable {
 
   address public wallet;
 
-  LightcashCryptoToken public token;
+  EnergotronToken public token;
 
   modifier canMint() {
     require(now >= start && now < lastSaleDate() && msg.value >= minPurchaseLimit && minted < hardcap);
@@ -382,7 +378,7 @@ contract CommonTokenEvent is Ownable {
   }
 
   function setToken(address newToken) public onlyOwner {
-    token = LightcashCryptoToken(newToken);
+    token = EnergotronToken(newToken);
   }
 
   function setRefererPercent(uint newRefererPercent) public onlyOwner {
@@ -449,25 +445,9 @@ contract CommonTokenEvent is Ownable {
 
 }
 
-// File: contracts/PreTGE.sol
-
 contract PreTGE is CommonTokenEvent {
 
-  uint public softcap;
-
-  bool public refundOn;
-
-  bool public softcapAchieved;
-
   address public nextSaleAgent;
-
-  mapping (address => uint) public balances;
-
-  event RefundsEnabled();
-
-  event SoftcapReached();
-
-  event Refunded(address indexed beneficiary, uint256 weiAmount);
 
   function setPeriod(uint newPeriod) public onlyOwner {
     period = newPeriod;
@@ -481,45 +461,16 @@ contract PreTGE is CommonTokenEvent {
     nextSaleAgent = newNextSaleAgent;
   }
 
-  function setSoftcap(uint newSoftcap) public onlyOwner {
-    softcap = newSoftcap;
-  }
-
-  function refund() public {
-    require(now > start && refundOn && balances[msg.sender] > 0);
-    uint value = balances[msg.sender];
-    balances[msg.sender] = 0;
-    msg.sender.transfer(value);
-    Refunded(msg.sender, value);
-  }
-
-  function widthraw() public {
-    require(softcapAchieved);
-    wallet.transfer(this.balance);
-  }
-
   function createTokens() public payable canMint {
-    balances[msg.sender] = balances[msg.sender].add(msg.value);
-    super.calculateAndTransferTokensWithReferer(msg.sender, msg.value);
-    if (!softcapAchieved && minted >= softcap) {
-      softcapAchieved = true;
-      SoftcapReached();
-    }
+    wallet.transfer(msg.value);
+    calculateAndTransferTokensWithReferer(msg.sender, msg.value);
   }
 
   function finish() public onlyOwner {
-    if (!softcapAchieved) {
-      refundOn = true;
-      RefundsEnabled();
-    } else {
-      widthraw();
-      token.setSaleAgent(nextSaleAgent);
-    }
+    token.setSaleAgent(nextSaleAgent);
   }
 
 }
-
-// File: contracts/StagedTokenEvent.sol
 
 contract StagedTokenEvent is CommonTokenEvent {
 
@@ -608,26 +559,30 @@ contract StagedTokenEvent is CommonTokenEvent {
 
 }
 
-// File: contracts/TGE.sol
-
 contract TGE is StagedTokenEvent {
 
-  address public extraTokensWallet;
+  address public foundersTokensWallet;
 
-  uint public extraTokensPercent;
+  address public bountyTokensWallet;
 
-  uint public extraTokensLockPeriod;
+  uint public foundersTokensPercent;
 
-  function setExtraTokensWallet(address newExtraTokensWallet) public onlyOwner {
-    extraTokensWallet = newExtraTokensWallet;
+  uint public bountyTokensPercent;
+
+  function setFoundersTokensWallet(address newFoundersTokensWallet) public onlyOwner {
+    foundersTokensWallet = newFoundersTokensWallet;
   }
 
-  function setExtraTokensPercent(uint newExtraTokensPercent) public onlyOwner {
-    extraTokensPercent = newExtraTokensPercent;
+  function setFoundersTokensPercent(uint newFoundersTokensPercent) public onlyOwner {
+    foundersTokensPercent = newFoundersTokensPercent;
   }
 
-  function setExtraTokensLockPeriod(uint newExtraTokensLockPeriod) public onlyOwner {
-    extraTokensLockPeriod = newExtraTokensLockPeriod;
+  function setBountyTokensWallet(address newBountyTokensWallet) public onlyOwner {
+    bountyTokensWallet = newBountyTokensWallet;
+  }
+
+  function setBountyTokensPercent(uint newBountyTokensPercent) public onlyOwner {
+    bountyTokensPercent = newBountyTokensPercent;
   }
 
   function calculateTokens(uint investedInWei) public view returns(uint) {
@@ -636,10 +591,12 @@ contract TGE is StagedTokenEvent {
 
   function finish() public onlyOwner {
     uint256 totalSupply = token.totalSupply();
-    uint allTokens = totalSupply.mul(PERCENT_RATE).div(PERCENT_RATE.sub(extraTokensPercent));
-    uint extraTokens = allTokens.mul(extraTokensPercent).div(PERCENT_RATE);
-    mintAndSendTokens(extraTokensWallet, extraTokens);
-    token.lock(extraTokensWallet, extraTokensLockPeriod);
+    uint summaryExtraPercent = bountyTokensPercent.add(foundersTokensPercent);
+    uint allTokens = totalSupply.mul(PERCENT_RATE).div(PERCENT_RATE.sub(summaryExtraPercent));
+    uint bountyTokens = allTokens.mul(bountyTokensPercent).div(PERCENT_RATE);
+    mintAndSendTokens(bountyTokensWallet, bountyTokens);
+    uint foundersTokens = allTokens.mul(foundersTokensPercent).div(PERCENT_RATE);
+    mintAndSendTokens(foundersTokensWallet, foundersTokens);
     token.finishMinting();
   }
 
@@ -650,42 +607,41 @@ contract TGE is StagedTokenEvent {
 
 }
 
-// File: contracts/Deployer.sol
-
 contract Deployer is Ownable {
 
-  LightcashCryptoToken public token;
+  EnergotronToken public token;
 
   PreTGE public preTGE;
 
   TGE public tge;
 
   function deploy() public onlyOwner {
-    token = new LightcashCryptoToken();
+    token = new EnergotronToken();
 
     preTGE = new PreTGE();
-    preTGE.setPrice(1250000000000000000000);
+    preTGE.setPrice(10000000000000000000000);
     preTGE.setMinPurchaseLimit(100000000000000000);
-    preTGE.setSoftcap(7142857000000000000000000);
-    preTGE.setHardcap(37500000000000000000000000);
-    preTGE.setStart(1515416400);
-    preTGE.setPeriod(7);
+    preTGE.setHardcap(13400000000000000000000000);
+    preTGE.setStart(1518699600);
+    preTGE.setPeriod(30);
     preTGE.setWallet(0xDFDCAc0c9Eb45C63Bcff91220A48684882F1DAd0);
     preTGE.setRefererPercent(5);
 
     tge = new TGE();
-    tge.setPrice(1000000000000000000000);
+    tge.setPrice(8000000000000000000000);
     tge.setMinPurchaseLimit(100000000000000000);
-    tge.setHardcap(105000000000000000000000000);
-    tge.setStart(1516024800);
+    tge.setHardcap(603000000000000000000000000000);
+    tge.setStart(1524229200);
     tge.setWallet(0x3aC45b49A4D3CB35022fd8122Fd865cd1B47932f);
-    tge.setExtraTokensWallet(0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B);
-    tge.setExtraTokensPercent(5);
-    tge.addStage(10, 20);
-    tge.addStage(10, 10);
-    tge.addStage(10, 0);
+    tge.setFoundersTokensWallet(0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B);
+    tge.setFoundersTokensPercent(7);
+    tge.setBountyTokensWallet(0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B);
+    tge.setBountyTokensPercent(1);
+    tge.addStage(5, 15);
+    tge.addStage(5, 10);
+    tge.addStage(5, 5);
+    tge.addStage(15, 0);
     tge.setRefererPercent(5);
-    tge.setExtraTokensLockPeriod(100);
 
     preTGE.setToken(token);
     tge.setToken(token);
