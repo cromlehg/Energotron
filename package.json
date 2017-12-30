@@ -21,6 +21,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "rpc": "testrpc --gasLimit 0x187E7C4",
     "test": "truffle test",
     "flatten": "npm run flatten-deployer && npm run flatten-token && npm run flatten-pretge && npm run flatten-tge",
     "flatten-deployer": "./node_modules/.bin/truffle-flattener ./contracts/Deployer.sol > ./deploy/Deployer.sol",
