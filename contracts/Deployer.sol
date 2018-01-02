@@ -23,7 +23,7 @@ contract Deployer is Ownable {
     preTGE.setHardcap(13400000000000000000000000);
     preTGE.setStart(1518699600);
     preTGE.setPeriod(30);
-    preTGE.setWallet(0xDFDCAc0c9Eb45C63Bcff91220A48684882F1DAd0);
+    preTGE.setWallet(0xf62158b03Edbdb92a12c64E4D8873195AC71aF6A);
     preTGE.setRefererPercent(5);
 
     tge = new TGE();
@@ -31,10 +31,10 @@ contract Deployer is Ownable {
     tge.setMinPurchaseLimit(100000000000000000);
     tge.setHardcap(603000000000000000000000000000);
     tge.setStart(1524229200);
-    tge.setWallet(0x3aC45b49A4D3CB35022fd8122Fd865cd1B47932f);
-    tge.setFoundersTokensWallet(0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B);
+    tge.setWallet(0xf62158b03Edbdb92a12c64E4D8873195AC71aF6A);
+    tge.setFoundersTokensWallet(0xf8b4Da46E85e43c47EBbF73ac8C6746fE3d3f111);
     tge.setFoundersTokensPercent(7);
-    tge.setBountyTokensWallet(0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B);
+    tge.setBountyTokensWallet(0xDa67155b22973bE05Bcd28c07107b2E17314A1e2);
     tge.setBountyTokensPercent(1);
     tge.addStage(5, 15);
     tge.addStage(5, 10);
@@ -47,7 +47,7 @@ contract Deployer is Ownable {
     preTGE.setNextSaleAgent(tge);
     token.setSaleAgent(preTGE);
 
-    address newOnwer = 0xF51E0a3a17990D41C5f1Ff1d0D772b26E4D6B6d0;
+    address newOnwer = 0x55dd7A6353FC004B4F6Da9855F9403B35f4530B1;
     token.transferOwnership(newOnwer);
     preTGE.transferOwnership(newOnwer);
     tge.transferOwnership(newOnwer);
