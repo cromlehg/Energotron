@@ -86,6 +86,11 @@ _Milestones_
 
 ## Ropsten network configuration
 
+* _Founders tokens_            : 7%
+* _Founders tokens wallet_     : 0xf8b4Da46E85e43c47EBbF73ac8C6746fE3d3f111
+* _Bounty tokens_              : 1%
+* _Bounty tokens wallet_       : 0xDa67155b22973bE05Bcd28c07107b2E17314A1e2
+
 #### Pre Token General Event
 * _Price_                      : 10000 ETN per 1 ETH
 * _Minimal insvested limit_    : 0.1 ETH
