@@ -155,3 +155,15 @@ https://ropsten.etherscan.io/tx/0x3feedee3e7992c656fab03d009f4977399b7a0e6fbe111
 https://ropsten.etherscan.io/tx/0x05c7ee7a3f7716cbf98b3d956d6037918036463addcc2c5fd4d4c9d8c12a9198
 * finish, gas = 111772
 https://ropsten.etherscan.io/tx/0x4776bcfec47584d0192ffcd295c448ceee658e57154c344bdd73d5bf7b87b728
+
+### Test audit (Token)
+
+#### Purchasers
+* transfer, gas = 39049
+https://ropsten.etherscan.io/tx/0x838e393c5eb9b755785c85c5e6a591bfa204ac2e080976f8a2e6918a726ffc15
+* transfer to contract through callback function, gas = 58756
+https://ropsten.etherscan.io/tx/0xd01172620fd2aa0e8cfa262689215adfd353cc088668654e42cbc874a8663fd9
+
+#### Service operations
+* registerCallback
+https://ropsten.etherscan.io/tx/0x96293f521ad964141d52c21be8fca44d8f8e75bd7bdcec0b473cf582f8715a53
