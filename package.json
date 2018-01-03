@@ -23,11 +23,12 @@
   "scripts": {
     "rpc": "testrpc --gasLimit 0x187E7C4",
     "test": "truffle test",
-    "flatten": "npm run flatten-deployer && npm run flatten-token && npm run flatten-pretge && npm run flatten-tge",
+    "flatten": "npm run flatten-deployer && npm run flatten-token && npm run flatten-pretge && npm run flatten-tge && npm run flatten-callback",
     "flatten-deployer": "./node_modules/.bin/truffle-flattener ./contracts/Deployer.sol > ./deploy/Deployer.sol",
     "flatten-token": "./node_modules/.bin/truffle-flattener ./contracts/EnergotronToken.sol > ./deploy/EnergotronToken.sol",
     "flatten-pretge": "./node_modules/.bin/truffle-flattener ./contracts/PreTGE.sol > ./deploy/PreTGE.sol",
-    "flatten-tge": "./node_modules/.bin/truffle-flattener ./contracts/TGE.sol > ./deploy/TGE.sol"
+    "flatten-tge": "./node_modules/.bin/truffle-flattener ./contracts/TGE.sol > ./deploy/TGE.sol",
+    "flatten-callback": "./node_modules/.bin/truffle-flattener ./contracts/ReceivingContractCallbackImplementation.sol > ./deploy/ReceivingContractCallbackImplementation.sol"
   },
   "repository": {
     "type": "git",
