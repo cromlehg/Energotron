@@ -10,12 +10,14 @@
 * _Tokens locked_   : Yes
 
 ## Social links
-### Facebook - 
-### Twitter - 
-### Reddit - 
-### Telegram - 
-### Medium - 
-### Instagram - 
+### Facebook - https://www.facebook.com/EnergotronICO/
+### Pinterest - https://ru.pinterest.com/energotronICO/
+### Twitter - https://twitter.com/Energotron_ICO
+### YouTube - https://www.youtube.com/channel/UCHa1Krev7P1umzKKxN_QYGA?view_as=subscriber
+### Reddit - https://www.reddit.com/user/Energotron/
+### Golos - https://golos.io/@energotron/
+### Telegram - https://t.me/joinchat/GTMfZxGm6Ht3NLHPsRwhaQ
+### Instagram - https://www.instagram.com/energotron/
 
 ## Smart-contracts description
 
@@ -50,9 +52,9 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 ## Main network configuration
 
 * _Founders tokens_            : 7% 
-* _Founders tokens wallet_     : 
+* _Founders tokens wallet_     : 0x98eC3DF925207B74b74cF582584fA6F420435B5F
 * _Bounty tokens_              : 1% 
-* _Bounty tokens wallet_       : 
+* _Bounty tokens wallet_       : 0x85680BC16aAb52CacD509e79ce52802eA83304CE
 
 #### Links
 * _Token_ - 
@@ -67,7 +69,7 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 * _Period_                     : 30 days
 * _Contract manager_           : 
 * _Direct mint agent_          : 
-* _ETH Wallet_                 : 
+* _ETH Wallet_                 : 0xd49A5242b0C893e471BebFa83Bb43bd617f9fF1F
 
 #### Token General Event
 * _Base price_                 : 8000 ETN per 1 ETH
@@ -76,7 +78,7 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 * _Start_                      : Fri, 20 Apr 2018 13:00:00 GMT
 * _Contract manager_           : 
 * _Direct mint agent_          : 
-* _ETH Wallet_                 : 
+* _ETH Wallet_                 : 0x1a902956984A111F0Cd7b3BAd375Fc3BD2DECB6f
 
 _Milestones_
 1. 5 days                     : discount 15%
