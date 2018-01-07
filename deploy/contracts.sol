@@ -235,6 +235,8 @@ contract StandardToken is ERC20, BasicToken {
 
 }
 
+// File: contracts/EnergotronToken.sol
+
 contract EnergotronToken is StandardToken, Ownable {
 
   event Mint(address indexed to, uint256 amount);
@@ -315,6 +317,8 @@ contract EnergotronToken is StandardToken, Ownable {
   }
 
 }
+
+// File: contracts/CommonTokenEvent.sol
 
 contract CommonTokenEvent is Ownable {
 
@@ -445,6 +449,8 @@ contract CommonTokenEvent is Ownable {
 
 }
 
+// File: contracts/PreTGE.sol
+
 contract PreTGE is CommonTokenEvent {
 
   address public nextSaleAgent;
@@ -471,6 +477,8 @@ contract PreTGE is CommonTokenEvent {
   }
 
 }
+
+// File: contracts/StagedTokenEvent.sol
 
 contract StagedTokenEvent is CommonTokenEvent {
 
@@ -559,6 +567,8 @@ contract StagedTokenEvent is CommonTokenEvent {
 
 }
 
+// File: contracts/TGE.sol
+
 contract TGE is StagedTokenEvent {
 
   address public foundersTokensWallet;
@@ -607,6 +617,8 @@ contract TGE is StagedTokenEvent {
 
 }
 
+// File: contracts/Deployer.sol
+
 contract Deployer is Ownable {
 
   EnergotronToken public token;
@@ -624,7 +636,7 @@ contract Deployer is Ownable {
     preTGE.setHardcap(13400000000000000000000000);
     preTGE.setStart(1518699600);
     preTGE.setPeriod(30);
-    preTGE.setWallet(0xDFDCAc0c9Eb45C63Bcff91220A48684882F1DAd0);
+    preTGE.setWallet(0xd49A5242b0C893e471BebFa83Bb43bd617f9fF1F);
     preTGE.setRefererPercent(5);
 
     tge = new TGE();
@@ -632,10 +644,10 @@ contract Deployer is Ownable {
     tge.setMinPurchaseLimit(100000000000000000);
     tge.setHardcap(603000000000000000000000000000);
     tge.setStart(1524229200);
-    tge.setWallet(0x3aC45b49A4D3CB35022fd8122Fd865cd1B47932f);
-    tge.setFoundersTokensWallet(0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B);
+    tge.setWallet(0x1a902956984A111F0Cd7b3BAd375Fc3BD2DECB6f);
+    tge.setFoundersTokensWallet(0x98eC3DF925207B74b74cF582584fA6F420435B5F);
     tge.setFoundersTokensPercent(7);
-    tge.setBountyTokensWallet(0xF0e830148F3d1C4656770DAa282Fda6FAAA0Fe0B);
+    tge.setBountyTokensWallet(0x85680BC16aAb52CacD509e79ce52802eA83304CE);
     tge.setBountyTokensPercent(1);
     tge.addStage(5, 15);
     tge.addStage(5, 10);
@@ -648,7 +660,7 @@ contract Deployer is Ownable {
     preTGE.setNextSaleAgent(tge);
     token.setSaleAgent(preTGE);
 
-    address newOnwer = 0xF51E0a3a17990D41C5f1Ff1d0D772b26E4D6B6d0;
+    address newOnwer = 0x55dd7A6353FC004B4F6Da9855F9403B35f4530B1;
     token.transferOwnership(newOnwer);
     preTGE.transferOwnership(newOnwer);
     tge.transferOwnership(newOnwer);
