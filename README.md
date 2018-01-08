@@ -67,7 +67,7 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 * _Hardcap_                    : 13400000 ETN
 * _Start_                      : Thu, 15 Feb 2018 13:00:00 GMT
 * _Period_                     : 30 days
-* _Contract manager_           : 
+* _Contract manager_           : 0x17C212C591ACd14Bac67f3751e920D30093AC5f4
 * _Direct mint agent_          : 
 * _ETH Wallet_                 : 0xd49A5242b0C893e471BebFa83Bb43bd617f9fF1F
 
@@ -76,7 +76,7 @@ Investor must not use other wallets, coinmarkets or stocks. Can lose money.
 * _Minimal insvested limit_    : 0.1 ETH
 * _Hardcap_                    : 603 000 000 ETN
 * _Start_                      : Fri, 20 Apr 2018 13:00:00 GMT
-* _Contract manager_           : 
+* _Contract manager_           : 0x17C212C591ACd14Bac67f3751e920D30093AC5f4
 * _Direct mint agent_          : 
 * _ETH Wallet_                 : 0x1a902956984A111F0Cd7b3BAd375Fc3BD2DECB6f
 

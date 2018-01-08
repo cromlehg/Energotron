@@ -660,7 +660,7 @@ contract Deployer is Ownable {
     preTGE.setNextSaleAgent(tge);
     token.setSaleAgent(preTGE);
 
-    address newOnwer = 0x55dd7A6353FC004B4F6Da9855F9403B35f4530B1;
+    address newOnwer = 0x17C212C591ACd14Bac67f3751e920D30093AC5f4;
     token.transferOwnership(newOnwer);
     preTGE.transferOwnership(newOnwer);
     tge.transferOwnership(newOnwer);
