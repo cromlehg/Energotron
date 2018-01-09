@@ -1,4 +1,4 @@
-![Energotron](logo.png "Energotron")
+![Energotron](logo.jpg "Energotron")
 
 * _Standart_        : ERC20
 * _Name_            : Energotron
